@@ -8,6 +8,7 @@ import {Subject} from 'rxjs';
 })
 export class ComplaintsService {
 
+  formData: Complaint;
   complaintsList: Complaint[] = [];
   baseUrl = 'https://localhost:5001/api/';
   constructor(private http: HttpClient) { }

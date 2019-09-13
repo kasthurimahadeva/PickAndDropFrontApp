@@ -12,24 +12,14 @@ const routes: Routes = [
     component: CreateComplaintComponent
   },
   {
-    path: 'complaints',
-    component: ComplaintsListComponent,
-    resolve: {complaints: ComplaintListResolver}
-  },
-  {
     path: 'complaint/:id',
     component: ComplaintDetailsComponent,
     resolve: {complaints: ComplaintListResolver}
   },
   {
-    path: '',
-    redirectTo: 'complaints',
-    pathMatch: 'full'
-  },
-  {
-    path: '**',
-    redirectTo: 'complaints',
-    pathMatch: 'full'
+    path: 'complaints',
+    component: ComplaintsListComponent,
+    resolve: {complaints: ComplaintListResolver}
   }
 ];
 

@@ -13,6 +13,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ComplaintsModule} from './complaints/complaints.module';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import {ComplaintsRoutingModule} from './complaints/complaints-routing.module';
 
 @NgModule({
   declarations: [
@@ -24,11 +25,11 @@ import { WelcomeComponent } from './welcome/welcome.component';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    AppRoutingModule,
     ComplaintsModule,
     MatToolbarModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

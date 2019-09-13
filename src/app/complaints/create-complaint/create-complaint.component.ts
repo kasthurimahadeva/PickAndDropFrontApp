@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {MatDialogRef} from '@angular/material';
+import {MatDialog, MatDialogConfig, MatDialogRef} from '@angular/material';
 import {ComplaintsService} from '../complaints.service';
 import {Complaint} from '../complaint.model';
 import {ToastrManager} from 'ng6-toastr-notifications';
 import {Router} from '@angular/router';
+import {ComplaintConfirmDialogComponent} from '../complaint-confirm-dialog/complaint-confirm-dialog.component';
+import {ComplaintCancelDialogComponent} from '../complaint-cancel-dialog/complaint-cancel-dialog.component';
 
 @Component({
   selector: 'app-create-complaint',
@@ -16,13 +18,18 @@ export class CreateComplaintComponent implements OnInit {
   complaint: Complaint;
   pageTitle = 'New Complaint';
   subTitle = 'Enter your complaint...';
+  dialogConfig = new MatDialogConfig();
 
   constructor(
     private complaintService: ComplaintsService,
     private formBuilder: FormBuilder,
     private toastr: ToastrManager,
-    private router: Router
-  ) { }
+    private router: Router,
+    private dialog: MatDialog
+  ) {
+    this.dialogConfig.disableClose = true;
+    this.dialogConfig.autoFocus = true;
+  }
 
   ngOnInit() {
     this.complaintForm = this.formBuilder.group({
@@ -32,20 +39,31 @@ export class CreateComplaintComponent implements OnInit {
     });
   }
 
-  save() {
+  openConfirmationDialog() {
     this.complaint = this.complaintForm.value;
-    this.complaint.Status = 'New';
+    this.complaint.Status = 'Confirmation';
     this.complaint.CreatedDateTime = new Date();
-    this.complaintService.saveComplaint(this.complaint).subscribe(
-      res => {
-        this.toastr.successToastr('Complaint successfully sent', 'Success');
-        this.router.navigate(['welcome']);
+    this.complaintService.formData = this.complaint;
+
+    const dialogRef = this.dialog.open(ComplaintConfirmDialogComponent, this.dialogConfig);
+    dialogRef.afterClosed().subscribe(
+      result => {
+        if (result) {
+          console.log('edit');
+        }
       }
     );
   }
 
-  dismiss() {
-    this.router.navigate(['welcome']);
-  }
+  openCancelDialog() {
+    const dialogRef = this.dialog.open(ComplaintCancelDialogComponent, this.dialogConfig);
 
+    dialogRef.afterClosed().subscribe(
+      result => {
+        if (result) {
+          console.log('cancel');
+        }
+      }
+    );
+  }
 }

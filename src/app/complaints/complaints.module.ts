@@ -19,14 +19,20 @@ import {ComplaintListResolver} from './complaints-list/complaint-list.resolver';
 import {MatSortModule} from '@angular/material/sort';
 import {ToastrModule} from 'ng6-toastr-notifications';
 import {ReactiveFormsModule} from '@angular/forms';
+import { ComplaintConfirmDialogComponent } from './complaint-confirm-dialog/complaint-confirm-dialog.component';
+import { ComplaintCancelDialogComponent } from './complaint-cancel-dialog/complaint-cancel-dialog.component';
 
 
 @NgModule({
-  declarations: [ComplaintsListComponent, ComplaintDetailsComponent, CreateComplaintComponent],
+  declarations: [
+    ComplaintsListComponent,
+    ComplaintDetailsComponent,
+    CreateComplaintComponent,
+    ComplaintConfirmDialogComponent,
+    ComplaintCancelDialogComponent],
   imports: [
     CommonModule,
     MatTableModule,
-    ComplaintsRoutingModule,
     MatPaginatorModule,
     MatSortModule,
     MatFormFieldModule,
@@ -38,10 +44,16 @@ import {ReactiveFormsModule} from '@angular/forms';
     MatButtonModule,
     MatGridListModule,
     ToastrModule.forRoot(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule,
+    ComplaintsRoutingModule
   ],
   providers: [
     ComplaintListResolver
+  ],
+  entryComponents: [
+    ComplaintConfirmDialogComponent,
+    ComplaintCancelDialogComponent
   ]
 })
 export class ComplaintsModule { }

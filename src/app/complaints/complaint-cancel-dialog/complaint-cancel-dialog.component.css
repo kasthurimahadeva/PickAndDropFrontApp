@@ -1,0 +1,15 @@
+.mat-confirm {
+  background: rgba(0, 229, 0, 0.16);
+  color: #006a00;
+  font-weight: bold;
+}
+
+.mat-edit {
+  background: rgba(229, 34, 49, 0.1);
+  color: #88160f;
+  font-weight: bold;
+}
+
+h4 {
+  margin: 0 75px;
+}

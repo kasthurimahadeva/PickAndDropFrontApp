@@ -17,15 +17,15 @@ export class ComplaintDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private complaintService: ComplaintsService,
               private router: Router,
-              private toastr: ToastrManager) {
-    if (this.complaintService.complaintsList.length === 0) {
-      this.complaintService.complaintsList = this.route.snapshot.data.complaints;
-    }
-  }
+              private toastr: ToastrManager) { }
 
   ngOnInit() {
     this.id = parseInt(this.route.snapshot.paramMap.get('id'), 10);
-    this.complaint = this.complaintService.findComplaint(this.id);
+    if (this.id) {
+      this.complaint = this.complaintService.findComplaint(this.id);
+    } else {
+      this.complaint = this.complaintService.formData;
+    }
   }
 
   onBack(): void {
