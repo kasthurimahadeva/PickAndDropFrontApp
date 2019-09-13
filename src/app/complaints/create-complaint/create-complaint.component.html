@@ -1,1 +1,47 @@
-<p>create-complaint works!</p>
+<mat-card class="complaint-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{pageTitle}}</mat-card-title>
+    <mat-card-subtitle>{{subTitle}}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form [formGroup]="complaintForm">
+      <div class="complaint-form">
+        <mat-form-field appearance="outline">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Name" formControlName="CustomerName" required>
+          <mat-error>Customer Name is required!</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Email Address</mat-label>
+          <input matInput placeholder="Email" formControlName="EmailAddress" required>
+          <mat-error *ngIf="complaintForm.get('EmailAddress').hasError('required')">
+            Email is required
+          </mat-error>
+          <mat-error
+            *ngIf="!complaintForm.get('EmailAddress').hasError('required') &&
+                                complaintForm.get('EmailAddress').hasError('email')">
+            Please enter a valid email address
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Complaint</mat-label>
+          <textarea matInput placeholder="Complaint" formControlName="ComplaintContent" rows="10" required></textarea>
+          <mat-error>Complaint is required!</mat-error>
+        </mat-form-field>
+      </div>
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-stroked-button [color]="'save'" (click)="save()" [disabled]="complaintForm.invalid">
+      <mat-icon>send</mat-icon> Sent
+    </button>
+    <button mat-button [color]="'close'" (click)="dismiss()">
+      <mat-icon>cancel</mat-icon> Cancel
+    </button>
+  </mat-card-actions>
+</mat-card>

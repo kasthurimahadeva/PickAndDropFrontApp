@@ -6,7 +6,9 @@ import { ComplaintsListComponent } from './complaints-list/complaints-list.compo
 import { ComplaintDetailsComponent } from './complaint-details/complaint-details.component';
 import { CreateComplaintComponent } from './create-complaint/create-complaint.component';
 import {
-  MatFormFieldModule,
+  MatButtonModule,
+  MatCardModule, MatDialogModule,
+  MatFormFieldModule, MatGridListModule,
   MatIconModule,
   MatInputModule,
   MatPaginatorModule, MatSelectModule,
@@ -15,6 +17,8 @@ import {
 } from '@angular/material';
 import {ComplaintListResolver} from './complaints-list/complaint-list.resolver';
 import {MatSortModule} from '@angular/material/sort';
+import {ToastrModule} from 'ng6-toastr-notifications';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -30,6 +34,11 @@ import {MatSortModule} from '@angular/material/sort';
     MatToolbarModule,
     MatIconModule,
     MatSelectModule,
+    MatCardModule,
+    MatButtonModule,
+    MatGridListModule,
+    ToastrModule.forRoot(),
+    ReactiveFormsModule
   ],
   providers: [
     ComplaintListResolver

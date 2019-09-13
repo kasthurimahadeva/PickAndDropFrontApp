@@ -1,8 +1,9 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span>Pick and Drop</span>
+    <mat-icon>directions_car</mat-icon>
+    <span class="company-name">Pick and Drop</span>
     <button mat-stroked-button routerLinkActive="mat-accent" [routerLink] = "['/welcome']"><h3>Home</h3></button>
     <button mat-stroked-button routerLinkActive="mat-accent" [routerLink] = "['/complaints']"><h3>Complaints List</h3></button>
-    <button mat-stroked-button routerLinkActive="mat-accent" [routerLink] = "['/complaint/create']"><h3>New Complaint</h3></button>
+    <button mat-stroked-button routerLinkActive="mat-accent" [routerLink]="['/complaint/create']"><h3>New Complaint</h3></button>
   </mat-toolbar-row>
 </mat-toolbar>

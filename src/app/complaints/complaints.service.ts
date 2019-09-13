@@ -8,10 +8,17 @@ import {Subject} from 'rxjs';
 })
 export class ComplaintsService {
 
-  complaintsList: Complaint[];
-  filteredComplaintList: Complaint[];
+  complaintsList: Complaint[] = [];
   baseUrl = 'https://localhost:5001/api/';
   constructor(private http: HttpClient) { }
+
+  getComplaintList() {
+    this.http.get<Complaint[]>(this.baseUrl + 'Complaints').toPromise().then(
+      res => {
+        this.complaintsList = res;
+      }
+    );
+  }
 
   getComplaints(): Subject<Complaint[]> {
     const subject = new Subject<Complaint[]>();

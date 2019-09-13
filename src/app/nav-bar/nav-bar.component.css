@@ -4,6 +4,13 @@
 }
 
 .mat-accent {
-  color: #00244a;
-  background: white;
+  color: white;
+  border-bottom: 2px solid white;
+}
+
+.company-name {
+  font-family: Helvetica;
+  font-weight: bold;
+  margin-left: 5px;
+  margin-right: 20px;
 }

@@ -17,6 +17,11 @@ const routes: Routes = [
     resolve: {complaints: ComplaintListResolver}
   },
   {
+    path: 'complaint/:id',
+    component: ComplaintDetailsComponent,
+    resolve: {complaints: ComplaintListResolver}
+  },
+  {
     path: '',
     redirectTo: 'complaints',
     pathMatch: 'full'

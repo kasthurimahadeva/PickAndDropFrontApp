@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {ActivatedRoute} from '@angular/router';
 import {Complaint} from '../complaint.model';
+import {ComplaintsService} from '../complaints.service';
 
 @Component({
   selector: 'app-complaints-list',
@@ -9,42 +10,18 @@ import {Complaint} from '../complaint.model';
   styleUrls: ['./complaints-list.component.css']
 })
 export class ComplaintsListComponent implements OnInit {
-  displayedColumns: string[] = ['ComplaintId', 'name', 'email', 'CreatedDateTime', 'Status'];
+  displayedColumns: string[] = ['ComplaintId', 'name', 'email', 'CreatedDateTime', 'Status', 'open'];
   dataSource: MatTableDataSource<Complaint>;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   complaints: Complaint[] = [];
-  status = ['All', 'Pending', 'Resolved', 'Move to High level'];
+  status = ['All', 'New', 'Pending', 'Resolved', 'Move to High level'];
 
-  constructor(private route: ActivatedRoute) {
-    // this.complaints.push({
-    //   ComplaintId: 1,
-    //   ComplaintContent: 'xxxxx',
-    //   CustomerName: 'xxx',
-    //   EmailAddress: 'xxxx',
-    //   CreatedDateTime: new Date(),
-    //   Status: 'Pending'
-    // });
-    //
-    // this.complaints.push({
-    //   ComplaintId: 2,
-    //   ComplaintContent: 'xxxxx',
-    //   CustomerName: 'xxx',
-    //   EmailAddress: 'xxxx',
-    //   CreatedDateTime: new Date(),
-    //   Status: 'Pending'
-    // });
-    //
-    // this.complaints.push({
-    //   ComplaintId: 3,
-    //   ComplaintContent: 'xxxxx',
-    //   CustomerName: 'xxx',
-    //   EmailAddress: 'xxxx',
-    //   CreatedDateTime: new Date(),
-    //   Status: 'Pending'
-    // });
+  constructor(private route: ActivatedRoute,
+              private complaintService: ComplaintsService) {
     this.complaints = this.route.snapshot.data.complaints;
+    this.complaintService.complaintsList = this.complaints;
   }
 
   ngOnInit() {

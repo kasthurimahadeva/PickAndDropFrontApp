@@ -28,7 +28,7 @@
 
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef> Customer Name </th>
-    <td mat-cell *matCellDef="let element"> {{element.CustomerName}} </td>
+    <td mat-cell *matCellDef="let element">{{element.CustomerName}} </td>
   </ng-container>
 
   <ng-container matColumnDef="email">
@@ -37,7 +37,7 @@
   </ng-container>
 
   <ng-container matColumnDef="CreatedDateTime">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Created Date </th>
     <td mat-cell *matCellDef="let element"> {{element.CreatedDateTime | date: 'short'}} </td>
   </ng-container>
 
@@ -45,6 +45,15 @@
     <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
     <td mat-cell *matCellDef="let element" id="{{element.Status}}" class="status"> {{element.Status}} </td>
   </ng-container>
+
+    <ng-container matColumnDef="open">
+      <th mat-header-cell *matHeaderCellDef> Open Complaint </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="primary" [routerLink]="['/complaint', element.ComplaintId]">
+          <mat-icon>open_in_new</mat-icon>
+        </button>
+      </td>
+    </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

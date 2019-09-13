@@ -1,0 +1,59 @@
+.example-card {
+  max-width: 600px;
+  background: #ffffff;
+  margin: 10px auto;
+  border: 1px solid #000000;
+}
+
+.example-header-image {
+  background-image: url('~src/assets/images/Complaint.jpeg');
+  background-size: cover;
+  border: 1px solid #000000;
+  width: 50px;
+  height: 50px;
+}
+
+.mat-card-title {
+  margin-top: 10px;
+}
+
+.detail {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+}
+
+
+.mat-raised-button {
+  background: rgba(218, 210, 219, 0.3);
+  color: #7a7a7a;
+  font-weight: bold;
+  border: 2px solid #ffffff;
+  border-radius: 2px;
+}
+
+.mat-resolved {
+  background: rgba(0, 252, 0, 0.22);
+  color: #006a00;
+}
+
+.mat-highLevel {
+  background: rgba(255, 0, 0, 0.12);
+  color: #c60000;
+}
+.mat-pending {
+  background: rgba(255, 255, 0, 0.23);
+  color: #e6800b;
+}
+
+.mat-icon {
+  font-size: 20px;
+}
+
+.actions {
+  background: white;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}

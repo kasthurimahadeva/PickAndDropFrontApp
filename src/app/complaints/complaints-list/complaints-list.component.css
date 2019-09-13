@@ -26,7 +26,7 @@ table {
 }
 
 #Pending {
-  color: blue;
+  color: #ff7810;
 }
 
 #Resolved {
@@ -39,4 +39,8 @@ table {
 
 .search-icon {
   margin-right: 10px;
+}
+
+#New {
+  color: blue;
 }
