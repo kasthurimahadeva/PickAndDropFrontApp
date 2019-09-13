@@ -4,10 +4,10 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {
-        MatButtonModule,
-        MatIconModule,
-        MatToolbarModule
-      } from '@angular/material';
+  MatButtonModule, MatCardModule,
+  MatIconModule,
+  MatToolbarModule
+} from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ComplaintsModule} from './complaints/complaints.module';
@@ -30,6 +30,7 @@ import {ComplaintsRoutingModule} from './complaints/complaints-routing.module';
     MatIconModule,
     MatButtonModule,
     AppRoutingModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
