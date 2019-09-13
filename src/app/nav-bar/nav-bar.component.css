@@ -1,0 +1,9 @@
+.mat-toolbar.mat-primary {
+  background: #00244a;
+  color: #fff;
+}
+
+.mat-accent {
+  color: #00244a;
+  background: white;
+}
