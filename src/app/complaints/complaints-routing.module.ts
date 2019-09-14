@@ -4,6 +4,7 @@ import {ComplaintsListComponent} from './complaints-list/complaints-list.compone
 import {ComplaintDetailsComponent} from './complaint-details/complaint-details.component';
 import {ComplaintListResolver} from './complaints-list/complaint-list.resolver';
 import {CreateComplaintComponent} from './create-complaint/create-complaint.component';
+import {AuthGuard} from '../guards/auth-guard.service';
 
 
 const routes: Routes = [
@@ -14,12 +15,16 @@ const routes: Routes = [
   {
     path: 'complaint/:id',
     component: ComplaintDetailsComponent,
-    resolve: {complaints: ComplaintListResolver}
+    resolve: {complaints: ComplaintListResolver},
+    data: {requiresLogin: true},
+    canActivate: [AuthGuard]
   },
   {
     path: 'complaints',
     component: ComplaintsListComponent,
-    resolve: {complaints: ComplaintListResolver}
+    resolve: {complaints: ComplaintListResolver},
+    data: {requiresLogin: true},
+    canActivate: [AuthGuard]
   }
 ];
 

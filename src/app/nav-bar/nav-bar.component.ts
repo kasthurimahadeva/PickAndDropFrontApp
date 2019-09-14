@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ToastrManager} from 'ng6-toastr-notifications';
+import {AuthenticationService} from '../shared/authentication.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -6,8 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-  constructor() { }
+
+  constructor(private toastr: ToastrManager,
+              private authService: AuthenticationService) {
+  }
 
   ngOnInit() {
+  }
+
+  logout() {
+    this.authService.logout();
   }
 }

@@ -16,8 +16,8 @@ export class ComplaintCancelDialogComponent implements OnInit {
   }
 
   confirm() {
-    this.router.navigate(['welcome']);
     this.dialogRef.close();
+    this.router.navigate(['welcome']);
   }
 
   cancel() {

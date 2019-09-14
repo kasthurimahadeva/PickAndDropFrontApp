@@ -4,8 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {
-  MatButtonModule, MatCardModule,
-  MatIconModule,
+  MatButtonModule, MatCardModule, MatDialogModule, MatFormFieldModule,
+  MatIconModule, MatInputModule,
   MatToolbarModule
 } from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
@@ -13,13 +13,15 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ComplaintsModule} from './complaints/complaints.module';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { WelcomeComponent } from './welcome/welcome.component';
-import {ComplaintsRoutingModule} from './complaints/complaints-routing.module';
+import { SignInComponent } from './sign-in/sign-in.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
@@ -31,8 +33,13 @@ import {ComplaintsRoutingModule} from './complaints/complaints-routing.module';
     MatButtonModule,
     AppRoutingModule,
     MatCardModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

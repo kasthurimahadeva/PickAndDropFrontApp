@@ -11,12 +11,14 @@
         <mat-form-field appearance="outline">
           <mat-label>Name</mat-label>
           <input matInput placeholder="Name" formControlName="CustomerName" required>
+          <mat-icon matSuffix class="secondary-text">perm_identity</mat-icon>
           <mat-error>Customer Name is required!</mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
           <mat-label>Email Address</mat-label>
           <input matInput placeholder="Email" formControlName="EmailAddress" required>
+          <mat-icon matSuffix class="secondary-text">email</mat-icon>
           <mat-error *ngIf="complaintForm.get('EmailAddress').hasError('required')">
             Email is required
           </mat-error>
@@ -30,6 +32,7 @@
         <mat-form-field appearance="outline">
           <mat-label>Complaint</mat-label>
           <textarea matInput placeholder="Complaint" formControlName="ComplaintContent" rows="10" required></textarea>
+          <mat-icon matSuffix class="secondary-text">question_answer</mat-icon>
           <mat-error>Complaint is required!</mat-error>
         </mat-form-field>
       </div>
