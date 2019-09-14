@@ -10,7 +10,7 @@ import {ComplaintsService} from '../complaints.service';
   styleUrls: ['./complaints-list.component.css']
 })
 export class ComplaintsListComponent implements OnInit {
-  displayedColumns: string[] = ['ComplaintId', 'name', 'email', 'CreatedDateTime', 'Status', 'open'];
+  displayedColumns: string[] = ['No', 'ComplaintId', 'name', 'email', 'CreatedDateTime', 'Status', 'open'];
   dataSource: MatTableDataSource<Complaint>;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -22,6 +22,7 @@ export class ComplaintsListComponent implements OnInit {
               private complaintService: ComplaintsService) {
     this.complaints = this.route.snapshot.data.complaints;
     this.complaintService.complaintsList = this.complaints;
+    this.complaints.reverse();
   }
 
   ngOnInit() {
@@ -38,9 +39,9 @@ export class ComplaintsListComponent implements OnInit {
     }
   }
 
-  // tslint:disable-next-line:use-lifecycle-interface
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
+  // // tslint:disable-next-line:use-lifecycle-interface
+  // ngAfterViewInit() {
+  //   this.dataSource.paginator = this.paginator;
+  //   this.dataSource.sort = this.sort;
+  // }
 }
