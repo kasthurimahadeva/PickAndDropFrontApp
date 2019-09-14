@@ -1,0 +1,41 @@
+.complaint-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.complaint-form > * {
+  width: 100%;
+}
+
+.complaint-card {
+  max-width: 400px;
+  background: #ffffff;
+  margin: 10px auto;
+  border: 1px solid #000000;
+}
+.example-header-image {
+  background-image: url('~src/assets/images/Complaint.jpeg');
+  background-size: cover;
+  border: 1px solid #000000;
+  width: 50px;
+  height: 50px;
+}
+
+.mat-save {
+  color: #006a00;
+  background: rgba(0, 252, 0, 0.07);
+  font-weight: bold;
+  border: 1px solid #006a00;
+}
+
+.mat-close {
+  color: #b00000;
+  background: rgba(255, 0, 0, 0.1);
+  font-weight: bold;
+  border: 1px solid #b00000;
+}
+
+.mat-card-actions {
+  margin-left: 25%;
+}
+

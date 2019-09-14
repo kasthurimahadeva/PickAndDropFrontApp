@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <mat-icon>directions_car</mat-icon>
+    <span class="company-name">Pick and Drop</span>
+    <button mat-stroked-button routerLinkActive="mat-accent" [routerLink] = "['/welcome']"><h3>Home</h3></button>
+    <button mat-stroked-button routerLinkActive="mat-accent" *ngIf="authService.authenticated" [routerLink] = "['/complaints']"><h3>Complaints</h3></button>
+    <button mat-stroked-button routerLinkActive="mat-accent" *ngIf="!authService.authenticated" [routerLink]="['/complaint/create']"><h3>New Complaint</h3></button>
+    <span class="space"></span>
+    <button mat-stroked-button routerLinkActive="mat-accent" *ngIf="!authService.authenticated" [routerLink]="['/login']"><h3>Login</h3></button>
+    <button mat-stroked-button routerLinkActive="mat-accent" *ngIf="authService.authenticated" (click)="logout()"><h3>Logout</h3></button>
+  </mat-toolbar-row>
+</mat-toolbar>

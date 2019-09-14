@@ -1,0 +1,21 @@
+.mat-toolbar.mat-primary {
+  background: #00244a;
+  color: #fff;
+}
+
+.mat-accent {
+  color: white;
+  border-bottom: 2px solid white;
+  border-radius: 0;
+}
+
+.company-name {
+  font-family: Helvetica, serif;
+  font-weight: bold;
+  margin-left: 5px;
+  margin-right: 20px;
+}
+
+.space {
+  flex: 1 1 auto;
+}
