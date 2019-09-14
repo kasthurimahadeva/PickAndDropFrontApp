@@ -22,6 +22,7 @@ export class ComplaintDetailsComponent implements OnInit {
   ngOnInit() {
     this.id = parseInt(this.route.snapshot.paramMap.get('id'), 10);
     if (this.id) {
+      this.complaintService.complaintsList = this.route.snapshot.data.complaints;
       this.complaint = this.complaintService.findComplaint(this.id);
     } else {
       this.complaint = this.complaintService.formData;

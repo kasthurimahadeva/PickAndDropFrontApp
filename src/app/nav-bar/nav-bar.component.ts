@@ -14,6 +14,7 @@ export class NavBarComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.authenticated = localStorage.getItem('token') !== null;
   }
 
   logout() {

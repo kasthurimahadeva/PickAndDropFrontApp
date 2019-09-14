@@ -36,7 +36,7 @@ export class AuthenticationService {
 
   getUserProfile() {
     const tokenHeader = new HttpHeaders({Authorization: 'Bearer ' + localStorage.getItem('token')});
-    this.http.get(this.baseUrl + 'UserProfile', {headers: tokenHeader});
+    return this.http.get(this.baseUrl + 'UserProfile', {headers: tokenHeader});
   }
 
   logout() {
