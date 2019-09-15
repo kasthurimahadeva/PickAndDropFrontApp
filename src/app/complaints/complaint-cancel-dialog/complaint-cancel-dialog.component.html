@@ -1,14 +1,14 @@
 <h4>Confirmation</h4>
 <mat-card>
   <mat-card-content>
-    <p>Are you sure you want to cancel this?</p>
+    <p>Are you sure, you want to cancel this?</p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-stroked-button [color]="'confirm'" (click)="confirm()">
-      <mat-icon>check_circle_outline</mat-icon> Confirm
+    <button mat-stroked-button class="actions" [color]="'confirm'" (click)="confirm()">
+      <mat-icon>done</mat-icon> Yes
     </button>
     <button mat-stroked-button [color]="'edit'" (click)="cancel()">
-      <mat-icon>close</mat-icon> Cancel
+      <mat-icon>close</mat-icon> No
     </button>
   </mat-card-actions>
 </mat-card>
