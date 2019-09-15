@@ -1,7 +1,3 @@
-.mat-dialog-actions {
-  margin: 0 100px;
-}
-
 .mat-confirm {
   background: rgba(0, 229, 0, 0.16);
   color: #006a00;
@@ -12,5 +8,10 @@
   background: rgba(229, 34, 49, 0.1);
   color: #88160f;
   font-weight: bold;
+}
+
+.actions {
+  margin-left: 30% !important;
+  margin-right: 5% !important;
 }
 
