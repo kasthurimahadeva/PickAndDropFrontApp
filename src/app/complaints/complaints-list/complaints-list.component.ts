@@ -10,7 +10,7 @@ import {ComplaintsService} from '../complaints.service';
   styleUrls: ['./complaints-list.component.css']
 })
 export class ComplaintsListComponent implements OnInit {
-  displayedColumns: string[] = ['No', 'ComplaintId', 'name', 'email', 'CreatedDateTime', 'Status', 'open'];
+  displayedColumns: string[] = ['No', 'name', 'email', 'CreatedDateTime', 'Status', 'open'];
   dataSource: MatTableDataSource<Complaint>;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
