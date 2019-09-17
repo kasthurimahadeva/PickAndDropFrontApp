@@ -11,11 +11,11 @@ export class ComplaintsService {
   formData: Complaint;
   complaintsList: Complaint[] = [];
   baseUrl = 'https://localhost:5001/api/';
-  tokenHeader = new HttpHeaders({Authorization: 'Bearer ' + localStorage.getItem('token')});
   constructor(private http: HttpClient) { }
 
   getComplaintList() {
-    this.http.get<Complaint[]>(this.baseUrl + 'Complaints', {headers: this.tokenHeader}).toPromise().then(
+    const tokenHeader = new HttpHeaders({Authorization: 'Bearer ' + localStorage.getItem('token')});
+    this.http.get<Complaint[]>(this.baseUrl + 'Complaints', {headers: tokenHeader}).toPromise().then(
       res => {
         this.complaintsList = res;
       }
@@ -24,8 +24,8 @@ export class ComplaintsService {
 
   getComplaints(): Subject<Complaint[]> {
     const subject = new Subject<Complaint[]>();
-
-    this.http.get<Complaint[]>(this.baseUrl + 'Complaints', {headers: this.tokenHeader}).subscribe(
+    const tokenHeader = new HttpHeaders({Authorization: 'Bearer ' + localStorage.getItem('token')});
+    this.http.get<Complaint[]>(this.baseUrl + 'Complaints', {headers: tokenHeader}).subscribe(
       complaints => subject.next(complaints),
       err => {
         subject.error(err);
@@ -41,7 +41,8 @@ export class ComplaintsService {
   }
 
   updateComplaint(id: number, complaint: Complaint) {
-    return this.http.put(this.baseUrl + 'Complaints/' + id, complaint, {headers: this.tokenHeader});
+    const tokenHeader = new HttpHeaders({Authorization: 'Bearer ' + localStorage.getItem('token')});
+    return this.http.put(this.baseUrl + 'Complaints/' + id, complaint, {headers: tokenHeader});
   }
 
   findComplaint(id: number) {

@@ -43,6 +43,7 @@ export class CreateComplaintComponent implements OnInit {
     this.complaint = this.complaintForm.value;
     this.complaint.Status = 'Confirmation';
     this.complaint.CreatedDateTime = new Date();
+    // console.log(this.complaint.CreatedDateTime);
     this.complaintService.formData = this.complaint;
 
     const dialogRef = this.dialog.open(ComplaintConfirmDialogComponent, this.dialogConfig);

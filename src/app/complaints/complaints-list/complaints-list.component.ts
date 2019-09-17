@@ -27,6 +27,7 @@ export class ComplaintsListComponent implements OnInit {
 
   ngOnInit() {
     this.dataSource = new MatTableDataSource(this.complaints);
+    // console.log(this.complaints.forEach((complaint) => complaint.CreatedDateTime));
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
