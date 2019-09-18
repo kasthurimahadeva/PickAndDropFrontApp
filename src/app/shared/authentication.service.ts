@@ -41,6 +41,7 @@ export class AuthenticationService {
 
   logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
     localStorage.setItem('authenticated', 'false');
     this.authenticated = false;
     this.toastr.successToastr('Successfully logout', 'Logout');
