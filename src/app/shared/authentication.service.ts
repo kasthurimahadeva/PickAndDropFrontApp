@@ -15,14 +15,14 @@ export class AuthenticationService {
               private router: Router,
               private toastr: ToastrManager) {}
 
-  login(formData) {
+  login(formData, redirectUrl) {
     this.http.post(this.baseUrl + 'Users/Login', formData).subscribe(
       (res: any) => {
         localStorage.setItem('token', res.token);
         localStorage.setItem('authenticated', 'true');
         this.authenticated = true;
         this.toastr.successToastr('Successfully LoggedIn', 'Success');
-        this.router.navigate(['welcome']);
+        this.router.navigate([redirectUrl]);
       },
       err => {
         if (err.status === 400) {
